@@ -7,16 +7,12 @@
     <title>About | Tegar Kang Ageng Gilang</title>
     <!-- Google Fonts: Inter -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- Material Symbols -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <!-- Tailwind CSS -->
@@ -175,66 +171,109 @@
     </style>
   </head>
   <body
-    class="bg-background font-body-md text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed"
+    class="bg-background font-body-md text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden"
   >
     <!-- TopNavBar -->
+    <!-- Navigation Shell -->
     <header
-      class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-outline-variant/20 shadow-sm bg-surface/70 backdrop-blur-xl"
+      class="fixed top-0 w-full z-50 border-b border-outline-variant/20 shadow-sm bg-surface/70 backdrop-blur-xl transition-all"
     >
       <nav
-        class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4"
+        class="flex justify-between items-center max-w-[1200px] mx-auto px-4 md:px-gutter py-4 relative"
       >
         <div
-          class="font-headline-lg text-[20px] md:text-[21px] font-bold tracking-tight text-on-surface"
+          class="font-headline-lg text-[16px] md:text-[21px] font-bold tracking-tight text-on-surface truncate pr-2"
         >
           Tegar Kang Ageng Gilang
         </div>
+
+        <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
           <a
             href="index.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >Home</a
           >
-            Home
-          </a>
-
           <a
             href="about.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >About</a
           >
-            About
-          </a>
-
           <a
             href="projects.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >Projects</a
           >
-            Projects
-          </a>
-
           <a
             href="contact.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >Contact</a
           >
-            Contact
-          </a>
         </nav>
+
+        <div class="flex items-center gap-4">
+          <button
+            class="hidden sm:block bg-primary text-on-primary px-5 md:px-6 py-2 md:py-2.5 rounded-full font-label-sm text-[12px] md:text-label-sm transition-all active:scale-95 hover:opacity-90 whitespace-nowrap"
+          >
+            Hire Me
+          </button>
+
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex items-center cursor-pointer p-1 rounded-md hover:bg-surface-variant/50 transition-colors"
+          >
+            <span class="material-symbols-outlined text-on-surface text-[28px]"
+              >menu</span
+            >
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline-variant/20 shadow-lg flex-col px-4 py-4 gap-2 origin-top"
+      >
+        <a
+          href="index.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >About</a
+        >
+        <a
+          href="projects.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Projects</a
+        >
+        <a
+          href="contact.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Contact</a
+        >
         <button
-          class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm transition-all active:scale-95 hover:opacity-90"
+          class="w-full bg-primary text-on-primary py-3 mt-2 rounded-xl font-bold active:scale-95 transition-transform"
         >
           Hire Me
         </button>
-      </nav>
+      </div>
     </header>
-    <main class="pt-[120px]">
+    <main class="pt-24 md:pt-[120px]">
       <!-- Hero Profile Section -->
-      <section class="max-w-[1200px] mx-auto px-gutter mb-section-gap">
+      <section
+        class="max-w-[1200px] mx-auto px-4 md:px-gutter mb-16 md:mb-section-gap"
+      >
         <div
-          class="grid grid-cols-1 md:grid-cols-12 gap-element-gap items-center"
+          class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-element-gap items-center"
         >
           <!-- Left: Profile Photo -->
-          <div class="md:col-span-5 lg:col-span-4">
+          <div class="md:col-span-5 lg:col-span-4 w-2/3 mx-auto md:w-full">
             <div
-              class="relative aspect-square rounded-24 overflow-hidden border border-outline-variant/20 shadow-sm bg-surface-container"
+              class="relative aspect-square rounded-full md:rounded-24 overflow-hidden border border-outline-variant/20 shadow-sm bg-surface-container"
             >
               <img
                 class="w-full h-full object-cover"
@@ -244,296 +283,411 @@
             </div>
           </div>
           <!-- Right: Content -->
-          <div class="md:col-span-7 lg:col-span-8">
+          <div class="md:col-span-7 lg:col-span-8 text-center md:text-left">
             <span
-              class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-4"
+              class="font-label-sm text-[10px] md:text-label-sm text-primary uppercase tracking-widest block mb-4"
               >Introduction</span
             >
             <h1
-              class="font-display-lg text-display-lg mb-6 leading-tight max-md:text-display-lg-mobile"
+              class="font-display-lg text-[32px] md:text-display-lg mb-4 md:mb-6 leading-tight"
             >
               Architecting digital order from complex systems.
             </h1>
             <p
-              class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl"
+              class="font-body-lg text-sm md:text-body-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0"
             >
               Software Engineering student interested in system analysis,
               problem-solving, and digital solutions. Experienced in system
               documentation, UI, and web-based applications.
             </p>
-            <div class="mt-8 flex flex-wrap gap-4">
+            <div
+              class="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center md:justify-start"
+            >
               <div
-                class="bg-surface-container-high px-4 py-2 rounded-full flex items-center gap-2"
+                class="bg-surface-container-high px-4 py-2 rounded-full flex items-center justify-center md:justify-start gap-2"
               >
-                <span class="material-symbols-outlined text-[18px] text-primary"
+                <span
+                  class="material-symbols-outlined text-[16px] md:text-[18px] text-primary"
                   >school</span
                 >
-                <span class="font-label-sm text-label-sm"
+                <span class="font-label-sm text-[10px] md:text-label-sm"
                   >Software Engineering Telkom University</span
                 >
               </div>
               <div
-                class="bg-surface-container-high px-4 py-2 rounded-full flex items-center gap-2"
+                class="bg-surface-container-high px-4 py-2 rounded-full flex items-center justify-center md:justify-start gap-2"
               >
-                <span class="material-symbols-outlined text-[18px] text-primary"
+                <span
+                  class="material-symbols-outlined text-[16px] md:text-[18px] text-primary"
                   >location_on</span
                 >
-                <span class="font-label-sm text-label-sm">Indonesia</span>
+                <span class="font-label-sm text-[10px] md:text-label-sm"
+                  >Indonesia</span
+                >
               </div>
             </div>
           </div>
         </div>
       </section>
       <!-- Technical Skills Section -->
-      <section class="bg-surface-container-low py-section-gap">
-        <div class="max-w-[1200px] mx-auto px-gutter">
-          <div class="mb-element-gap text-center md:text-left">
-            <h2 class="font-headline-xl text-headline-xl mb-2">
+      <section class="bg-surface-container-low py-16 md:py-section-gap">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-gutter">
+          <div class="mb-8 md:mb-element-gap text-center md:text-left">
+            <h2 class="font-headline-xl text-[28px] md:text-headline-xl mb-2">
               Technical Skills
             </h2>
-            <p class="font-body-md text-body-md text-on-surface-variant">
+            <p
+              class="font-body-md text-sm md:text-body-md text-on-surface-variant"
+            >
               Comprehensive toolset for system analysis and software
               development.
             </p>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Skill Card 1: Requirement Analysis -->
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+          >
+            <!-- Skill Cards -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">assignment</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >assignment</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Requirement Analysis
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Business Needs
               </p>
             </div>
-            <!-- Skill Card 2: BPMN -->
+            <!-- Skill Card 2 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">account_tree</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >account_tree</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 BPMN
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Process Modeling
               </p>
             </div>
-            <!-- Skill Card 3: UML -->
+            <!-- Skill Card 3 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">schema</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >schema</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 UML
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 System Structure
               </p>
             </div>
-            <!-- Skill Card 4: SRS -->
+            <!-- Skill Card 4 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">description</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >description</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 SRS
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Documentation
               </p>
             </div>
-            <!-- Skill Card 5: System Analysis -->
+            <!-- Skill Card 5 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">analytics</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >analytics</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 System Analysis
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Architecture Design
               </p>
             </div>
-            <!-- Skill Card 6: Database Design (ERD) -->
+            <!-- Skill Card 6 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">database</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >database</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 ERD Design
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Data Architecture
               </p>
             </div>
-            <!-- Skill Card 7: SQL (MySQL) -->
+            <!-- Skill Card 7 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">storage</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >storage</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 SQL (MySQL)
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Querying
               </p>
             </div>
-            <!-- Skill Card 8: REST API -->
+            <!-- Skill Card 8 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">api</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >api</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 REST API
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Integration
               </p>
             </div>
-            <!-- Skill Card 9: Postman -->
+            <!-- Skill Card 9 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">terminal</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >terminal</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Postman
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 API Testing
               </p>
             </div>
-            <!-- Skill Card 10: Agile Scrum -->
+            <!-- Skill Card 10 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">sync</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >sync</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Agile Scrum
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Workflow Management
               </p>
             </div>
-            <!-- Skill Card 11: Jira -->
+            <!-- Skill Card 11 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">view_kanban</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >view_kanban</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Jira
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Task Tracking
               </p>
             </div>
-            <!-- Skill Card 12: Git / GitHub -->
+            <!-- Skill Card 12 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">code</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >code</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Git / GitHub
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Version Control
               </p>
             </div>
-            <!-- Skill Card 13: Figma -->
+            <!-- Skill Card 13 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">draw</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >draw</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Figma
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Interface Design
               </p>
             </div>
-            <!-- Skill Card 14: Wireframing -->
+            <!-- Skill Card 14 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">grid_view</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >grid_view</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Wireframing
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Low Fidelity
               </p>
             </div>
-            <!-- Skill Card 15: Prototyping -->
+            <!-- Skill Card 15 -->
             <div
-              class="skill-card bg-surface-container-lowest p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
+              class="skill-card bg-surface-container-lowest p-4 md:p-6 rounded-24 border border-outline-variant/30 flex flex-col items-center text-center"
             >
               <div
-                class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4"
+                class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-3 md:mb-4"
               >
-                <span class="material-symbols-outlined">play_circle</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >play_circle</span
+                >
               </div>
-              <h3 class="font-label-sm text-label-sm text-on-surface mb-1">
+              <h3
+                class="font-label-sm text-[10px] md:text-label-sm text-on-surface mb-1"
+              >
                 Prototyping
               </h3>
-              <p class="text-[11px] text-on-surface-variant font-medium">
+              <p
+                class="text-[9px] md:text-[11px] text-on-surface-variant font-medium"
+              >
                 Interactions
               </p>
             </div>
@@ -541,27 +695,31 @@
         </div>
       </section>
       <!-- CTA Section -->
-      <section class="max-w-[1200px] mx-auto px-gutter py-section-gap">
-        <div class="bg-primary-container p-12 md:p-16 rounded-24 text-center">
+      <section
+        class="max-w-[1200px] mx-auto px-4 md:px-gutter py-16 md:py-section-gap"
+      >
+        <div class="bg-primary-container p-8 md:p-16 rounded-24 text-center">
           <h2
-            class="font-headline-xl text-headline-xl text-on-primary-container mb-6"
+            class="font-headline-xl text-[28px] md:text-headline-xl text-on-primary-container mb-4 md:mb-6"
           >
             Need a system optimized?
           </h2>
           <p
-            class="font-body-lg text-body-lg text-on-primary-container/80 mb-10 max-w-xl mx-auto"
+            class="font-body-lg text-sm md:text-body-lg text-on-primary-container/80 mb-8 md:mb-10 max-w-xl mx-auto"
           >
             I bridge the gap between business requirements and technical
             implementation. Let's build something efficient together.
           </p>
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <div
+            class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 w-full"
+          >
             <button
-              class="bg-on-primary-container text-primary-container px-8 py-3.5 rounded-xl font-bold font-body-md hover:opacity-90 active:scale-95 transition-all"
+              class="w-full sm:w-auto bg-on-primary-container text-primary-container px-6 md:px-8 py-3 md:py-3.5 rounded-xl font-bold font-body-md text-[14px] md:text-[16px] hover:opacity-90 active:scale-95 transition-all"
             >
               View Projects
             </button>
             <button
-              class="border-2 border-on-primary-container text-on-primary-container px-8 py-3.5 rounded-xl font-bold font-body-md hover:bg-on-primary-container/10 active:scale-95 transition-all"
+              class="w-full sm:w-auto border-2 border-on-primary-container text-on-primary-container px-6 md:px-8 py-3 md:py-3.5 rounded-xl font-bold font-body-md text-[14px] md:text-[16px] hover:bg-on-primary-container/10 active:scale-95 transition-all"
             >
               Download Resume
             </button>
@@ -573,7 +731,7 @@
     <footer class="border-t border-outline-variant bg-background py-8">
       <div class="max-w-[1200px] mx-auto px-6">
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-6"
+          class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
         >
           <div>
             <h3 class="text-lg font-semibold tracking-tight text-on-surface">
@@ -582,7 +740,9 @@
             <p class="text-sm text-secondary mt-1">System Analyst</p>
           </div>
 
-          <nav class="flex items-center gap-8 text-sm text-secondary">
+          <nav
+            class="flex flex-wrap justify-center md:justify-end items-center gap-6 md:gap-8 text-sm text-secondary"
+          >
             <a href="#" class="hover:text-on-surface transition-colors"
               >LinkedIn</a
             >
@@ -602,7 +762,6 @@
       </div>
     </footer>
     <script>
-      // Micro-interactions for smooth scrolling or hover effects can be added here
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -611,6 +770,27 @@
             target.scrollIntoView({
               behavior: "smooth",
             });
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- MOBILE MENU LOGIC ---
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = mobileMenuBtn.querySelector("span");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          // Toggle the display classes
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("flex");
+
+          // Change icon from 'menu' to 'close'
+          if (mobileMenu.classList.contains("hidden")) {
+            menuIcon.textContent = "menu";
+          } else {
+            menuIcon.textContent = "close";
           }
         });
       });

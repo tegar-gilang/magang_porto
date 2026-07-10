@@ -14,10 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
     <!-- Tailwind Configuration -->
     <script id="tailwind-config">
       tailwind.config = {
@@ -199,7 +195,6 @@
   <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
     <!-- Background Shader -->
     <div class="fixed inset-0 z-0 pointer-events-none opacity-40">
-      <!-- STITCH_SHADER_START:ANIMATION_1 class="absolute inset-0 w-full h-full" -->
       <div class="absolute inset-0 w-full h-full" style="display: block">
         <canvas
           id="shader-canvas-ANIMATION_1"
@@ -208,9 +203,6 @@
         <script>
           (function () {
             const canvas = document.getElementById("shader-canvas-ANIMATION_1");
-
-            // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
-            // This fires on initial layout and whenever the element is resized.
             function syncSize() {
               const w = canvas.clientWidth || 1280;
               const h = canvas.clientHeight || 720;
@@ -241,11 +233,9 @@ uniform vec2 u_resolution;
 
 void main() {
     vec2 uv = v_texCoord;
-    
-    // Create a very subtle flowing gradient
-    vec3 color1 = vec3(1.0, 1.0, 1.0); // White
-    vec3 color2 = vec3(0.96, 0.96, 0.97); // Light Grey #F5F5F7
-    vec3 color3 = vec3(0.90, 0.94, 1.0); // Very light Apple Blue
+    vec3 color1 = vec3(1.0, 1.0, 1.0);
+    vec3 color2 = vec3(0.96, 0.96, 0.97);
+    vec3 color3 = vec3(0.90, 0.94, 1.0);
     
     float noise = sin(uv.x * 2.0 + u_time * 0.2) * cos(uv.y * 2.0 + u_time * 0.3) * 0.5 + 0.5;
     
@@ -279,8 +269,6 @@ void main() {
             const uRes = gl.getUniformLocation(prog, "u_resolution");
             const uMouse = gl.getUniformLocation(prog, "u_mouse");
 
-            // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
-            // Shaders that need normalized coords should use: u_mouse / u_resolution.
             let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
             window.addEventListener("mousemove", (event) => {
               const rect = canvas.getBoundingClientRect();
@@ -307,62 +295,102 @@ void main() {
       </div>
     </div>
     <!-- Navigation Shell -->
+    <!-- Navigation Shell -->
     <header
-      class="fixed top-0 w-full z-50 border-b border-outline-variant/20 shadow-sm bg-surface/70 backdrop-blur-xl"
+      class="fixed top-0 w-full z-50 border-b border-outline-variant/20 shadow-sm bg-surface/70 backdrop-blur-xl transition-all"
     >
       <nav
-        class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4"
+        class="flex justify-between items-center max-w-[1200px] mx-auto px-4 md:px-gutter py-4 relative"
       >
         <div
-          class="font-headline-lg text-[20px] md:text-[21px] font-bold tracking-tight text-on-surface"
+          class="font-headline-lg text-[16px] md:text-[21px] font-bold tracking-tight text-on-surface truncate pr-2"
         >
           Tegar Kang Ageng Gilang
         </div>
+
+        <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
           <a
             href="index.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >Home</a
           >
-            Home
-          </a>
-
           <a
             href="about.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >About</a
           >
-            About
-          </a>
-
           <a
             href="projects.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >Projects</a
           >
-            Projects
-          </a>
-
           <a
             href="contact.html"
             class="text-on-surface-variant hover:text-primary transition-colors"
+            >Contact</a
           >
-            Contact
-          </a>
         </nav>
+
+        <div class="flex items-center gap-4">
+          <button
+            class="hidden sm:block bg-primary text-on-primary px-5 md:px-6 py-2 md:py-2.5 rounded-full font-label-sm text-[12px] md:text-label-sm transition-all active:scale-95 hover:opacity-90 whitespace-nowrap"
+          >
+            Hire Me
+          </button>
+
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex items-center cursor-pointer p-1 rounded-md hover:bg-surface-variant/50 transition-colors"
+          >
+            <span class="material-symbols-outlined text-on-surface text-[28px]"
+              >menu</span
+            >
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline-variant/20 shadow-lg flex-col px-4 py-4 gap-2 origin-top"
+      >
+        <a
+          href="index.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >About</a
+        >
+        <a
+          href="projects.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Projects</a
+        >
+        <a
+          href="contact.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Contact</a
+        >
         <button
-          class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm transition-all active:scale-95 hover:opacity-90"
+          class="w-full bg-primary text-on-primary py-3 mt-2 rounded-xl font-bold active:scale-95 transition-transform"
         >
           Hire Me
         </button>
-      </nav>
+      </div>
     </header>
     <main class="relative z-10">
       <!-- Hero Section -->
-      <!-- Hero Section -->
       <section
-        class="relative min-h-screen flex flex-col justify-center items-center text-center px-gutter pt-20"
+        class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 md:px-gutter pt-24 md:pt-20 pb-16"
       >
-        <div class="max-w-4xl space-y-8">
+        <div class="max-w-4xl space-y-6 md:space-y-8">
           <div
-            class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary/20 px-4 py-1.5 rounded-full text-primary font-label-sm text-label-sm hero-reveal"
+            class="inline-flex items-center gap-2 bg-primary-container/10 border border-primary/20 px-4 py-1.5 rounded-full text-primary font-label-sm text-[11px] md:text-label-sm hero-reveal"
           >
             <span
               class="material-symbols-outlined text-[14px]"
@@ -372,32 +400,32 @@ void main() {
             Available for New Opportunities
           </div>
           <h1
-            class="font-display-lg text-display-lg md:text-[72px] leading-tight text-on-surface hero-reveal hero-reveal-delay-1"
+            class="font-display-lg text-display-lg-mobile md:text-[72px] leading-tight text-on-surface hero-reveal hero-reveal-delay-1"
           >
             Designing Digital Experiences with
-            <span class="text-primary">Logic</span> and
+            <span class="text-primary block md:inline">Logic</span> and
             <span class="text-primary-container">Simplicity</span>.
           </h1>
           <p
-            class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto hero-reveal hero-reveal-delay-2"
+            class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-2xl mx-auto hero-reveal hero-reveal-delay-2 px-2"
           >
             Software Engineering student focused on System Analysis, Business
             Process, UI/UX, and Requirement Engineering. Bridging the gap
             between human needs and technical excellence.
           </p>
           <div
-            class="flex flex-col sm:flex-row gap-4 justify-center items-center hero-reveal hero-reveal-delay-3 pt-4"
+            class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center hero-reveal hero-reveal-delay-3 pt-4 w-full sm:w-auto"
           >
             <a
               href="projects.html"
-              class="inline-block text-center bg-primary text-on-primary px-10 py-4 rounded-xl font-headline-lg text-[18px] transition-all hover:opacity-90 shadow-md active:scale-95"
+              class="w-full sm:w-auto inline-block text-center bg-primary text-on-primary px-8 md:px-10 py-3 md:py-4 rounded-xl font-headline-lg text-[16px] md:text-[18px] transition-all hover:opacity-90 shadow-md active:scale-95"
             >
               View Projects
             </a>
             <a
               href="https://wa.me/6281227128250?text=Halo%20Tegar,%20saya%20tertarik%20dengan%20portfolio%20Anda"
               target="_blank"
-              class="inline-block text-center bg-transparent text-primary border border-primary/20 px-10 py-4 rounded-xl font-headline-lg text-[18px] transition-all hover:bg-primary/5 active:scale-95"
+              class="w-full sm:w-auto inline-block text-center bg-transparent text-primary border border-primary/20 px-8 md:px-10 py-3 md:py-4 rounded-xl font-headline-lg text-[16px] md:text-[18px] transition-all hover:bg-primary/5 active:scale-95"
             >
               Contact Me
             </a>
@@ -406,23 +434,30 @@ void main() {
 
         <!-- Scroll Indicator -->
         <div
-          class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
+          class="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
         >
-          <span class="text-label-sm font-label-sm uppercase tracking-widest"
+          <span
+            class="text-[10px] md:text-label-sm font-label-sm uppercase tracking-widest"
             >Scroll</span
           >
           <div
-            class="w-px h-12 bg-gradient-to-b from-primary to-transparent"
+            class="w-px h-8 md:h-12 bg-gradient-to-b from-primary to-transparent"
           ></div>
         </div>
       </section>
       <!-- Bento Grid Showcase -->
-      <section class="max-w-[1200px] mx-auto px-gutter py-section-gap">
-        <div class="mb-element-gap">
-          <h4 class="font-headline-xl text-headline-xl text-on-surface mb-2">
+      <section
+        class="max-w-[1200px] mx-auto px-4 md:px-gutter py-16 md:py-section-gap"
+      >
+        <div class="mb-8 md:mb-element-gap text-center md:text-left">
+          <h4
+            class="font-headline-xl text-[28px] md:text-headline-xl text-on-surface mb-2"
+          >
             Core Competencies
           </h4>
-          <p class="text-on-surface-variant max-w-xl">
+          <p
+            class="text-on-surface-variant max-w-xl mx-auto md:mx-0 text-sm md:text-base"
+          >
             A multidisciplinary approach to solving complex architectural
             problems through rigorous analysis.
           </p>
@@ -430,39 +465,44 @@ void main() {
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
           <!-- Main Card: System Analysis -->
           <div
-            class="md:col-span-8 bg-surface-container-low border border-outline-variant/30 rounded-[24px] p-10 flex flex-col justify-between bento-card overflow-hidden relative"
+            class="md:col-span-8 bg-surface-container-low border border-outline-variant/30 rounded-[24px] p-6 md:p-10 flex flex-col justify-between bento-card overflow-hidden relative"
           >
             <div class="relative z-10">
               <div class="text-primary mb-4">
-                <span class="material-symbols-outlined text-[40px]"
+                <span
+                  class="material-symbols-outlined text-[32px] md:text-[40px]"
                   >account_tree</span
                 >
               </div>
-              <h3 class="font-headline-lg text-headline-lg mb-4">
+              <h3
+                class="font-headline-lg text-[24px] md:text-headline-lg mb-2 md:mb-4"
+              >
                 System Analysis &amp; Architecture
               </h3>
-              <p class="text-on-surface-variant text-body-lg max-w-md">
+              <p
+                class="text-on-surface-variant text-sm md:text-body-lg max-w-md"
+              >
                 Deconstructing complex business requirements into scalable
                 technical blueprints. Expertise in UML, ERD, and workflow
                 optimization.
               </p>
             </div>
-            <div class="mt-8 flex gap-3 flex-wrap">
+            <div class="mt-6 md:mt-8 flex gap-2 md:gap-3 flex-wrap">
               <span
-                class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm"
+                class="bg-surface-container-high px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[10px] md:text-label-sm font-label-sm"
                 >UML Modeling</span
               >
               <span
-                class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm"
+                class="bg-surface-container-high px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[10px] md:text-label-sm font-label-sm"
                 >BPMN 2.0</span
               >
               <span
-                class="bg-surface-container-high px-4 py-2 rounded-full text-label-sm font-label-sm"
+                class="bg-surface-container-high px-3 md:px-4 py-1.5 md:py-2 rounded-full text-[10px] md:text-label-sm font-label-sm"
                 >Database Design</span
               >
             </div>
             <div
-              class="absolute right-0 bottom-0 w-1/2 h-full opacity-10 pointer-events-none"
+              class="absolute right-0 bottom-0 w-1/2 h-full opacity-10 pointer-events-none hidden md:block"
             >
               <img
                 class="w-full h-full object-contain"
@@ -473,16 +513,18 @@ void main() {
           </div>
           <!-- Side Card: UI/UX -->
           <div
-            class="md:col-span-4 bg-primary-container text-on-primary-container border border-primary/20 rounded-[24px] p-10 flex flex-col justify-between bento-card"
+            class="md:col-span-4 bg-primary-container text-on-primary-container border border-primary/20 rounded-[24px] p-6 md:p-10 flex flex-col justify-between bento-card gap-6"
           >
             <div>
-              <span class="material-symbols-outlined text-[40px]"
+              <span class="material-symbols-outlined text-[32px] md:text-[40px]"
                 >polyline</span
               >
-              <h3 class="font-headline-lg text-headline-lg mt-4 mb-2">
+              <h3
+                class="font-headline-lg text-[24px] md:text-headline-lg mt-2 md:mt-4 mb-2"
+              >
                 UI/UX Design
               </h3>
-              <p class="opacity-80">
+              <p class="opacity-80 text-sm md:text-base">
                 Creating intuitive interfaces that prioritize user clarity and
                 structural logic.
               </p>
@@ -506,69 +548,83 @@ void main() {
           </div>
           <!-- Bottom Left: Requirement Engineering -->
           <div
-            class="md:col-span-4 bg-surface-container-highest border border-outline-variant/30 rounded-[24px] p-8 bento-card"
+            class="md:col-span-4 bg-surface-container-highest border border-outline-variant/30 rounded-[24px] p-6 md:p-8 bento-card"
           >
-            <span class="material-symbols-outlined text-[32px] text-tertiary"
+            <span
+              class="material-symbols-outlined text-[28px] md:text-[32px] text-tertiary"
               >description</span
             >
-            <h4 class="font-headline-lg text-headline-lg mt-4 mb-2">
+            <h4
+              class="font-headline-lg text-[20px] md:text-headline-lg mt-2 md:mt-4 mb-2"
+            >
               Requirement Engineering
             </h4>
-            <p class="text-on-surface-variant">
+            <p class="text-on-surface-variant text-sm md:text-base">
               Bridging stakeholder expectations with developer capabilities
               through precision documentation.
             </p>
           </div>
           <!-- Bottom Right: Technical Expertise -->
           <div
-            class="md:col-span-8 bg-background border border-outline-variant/30 rounded-[24px] p-8 flex items-center justify-between bento-card"
+            class="md:col-span-8 bg-background border border-outline-variant/30 rounded-[24px] p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between bento-card gap-6"
           >
             <div class="max-w-xs">
-              <h4 class="font-headline-lg text-headline-lg mb-2">
+              <h4 class="font-headline-lg text-[20px] md:text-headline-lg mb-2">
                 Technical Foundation
               </h4>
-              <p class="text-on-surface-variant">
+              <p class="text-on-surface-variant text-sm md:text-base">
                 Proficient in modern software development lifecycles and agile
                 methodologies.
               </p>
             </div>
             <div class="flex -space-x-4">
               <div
-                class="w-16 h-16 rounded-full bg-surface-container-high border-4 border-background flex items-center justify-center"
+                class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-surface-container-high border-4 border-background flex items-center justify-center"
               >
-                <span class="material-symbols-outlined">data_object</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >data_object</span
+                >
               </div>
               <div
-                class="w-16 h-16 rounded-full bg-primary-fixed border-4 border-background flex items-center justify-center"
+                class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary-fixed border-4 border-background flex items-center justify-center"
               >
-                <span class="material-symbols-outlined">cloud</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >cloud</span
+                >
               </div>
               <div
-                class="w-16 h-16 rounded-full bg-secondary-fixed border-4 border-background flex items-center justify-center"
+                class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-secondary-fixed border-4 border-background flex items-center justify-center"
               >
-                <span class="material-symbols-outlined">api</span>
+                <span
+                  class="material-symbols-outlined text-[20px] md:text-[24px]"
+                  >api</span
+                >
               </div>
             </div>
           </div>
         </div>
       </section>
       <!-- Project Spotlight (Editorial Style) -->
-      <section class="bg-surface-container-lowest py-section-gap">
-        <div class="max-w-[1200px] mx-auto px-gutter">
+      <section class="bg-surface-container-lowest py-16 md:py-section-gap">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-gutter">
           <div
-            class="flex flex-col md:flex-row justify-between items-end mb-element-gap gap-4"
+            class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-element-gap gap-4"
           >
             <div>
               <span
-                class="text-primary font-label-sm text-label-sm tracking-widest uppercase"
+                class="text-primary font-label-sm text-[10px] md:text-label-sm tracking-widest uppercase"
                 >Selected Works</span
               >
-              <h2 class="font-display-lg text-display-lg mt-2">
+              <h2
+                class="font-display-lg text-[32px] md:text-display-lg mt-2 leading-tight"
+              >
                 Solving Complex Problems.
               </h2>
             </div>
             <a
-              class="group flex items-center gap-2 text-primary font-bold hover:underline"
+              class="group flex items-center gap-2 text-primary font-bold hover:underline text-sm md:text-base"
               href="#"
             >
               Explore Archive
@@ -578,11 +634,11 @@ void main() {
               >
             </a>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <!-- Project 1 -->
             <div class="group cursor-pointer">
               <div
-                class="aspect-video rounded-[32px] overflow-hidden bg-surface-container relative mb-6"
+                class="aspect-video rounded-[24px] md:rounded-[32px] overflow-hidden bg-surface-container relative mb-4 md:mb-6"
               >
                 <img
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -593,21 +649,23 @@ void main() {
                   class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500"
                 ></div>
               </div>
-              <div class="space-y-3">
+              <div class="space-y-2 md:space-y-3">
                 <div class="flex gap-2">
                   <span
-                    class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
+                    class="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
                     >Analysis</span
                   >
                   <span
-                    class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
+                    class="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
                     >Architecture</span
                   >
                 </div>
-                <h3 class="font-headline-lg text-headline-lg">
+                <h3 class="font-headline-lg text-[24px] md:text-headline-lg">
                   Analytics System
                 </h3>
-                <p class="text-on-surface-variant text-body-md line-clamp-2">
+                <p
+                  class="text-on-surface-variant text-sm md:text-body-md line-clamp-2"
+                >
                   A complete digital transformation for a logistics firm,
                   reducing operational friction by 40% through systemic process
                   re-engineering.
@@ -617,7 +675,7 @@ void main() {
             <!-- Project 2 -->
             <div class="group cursor-pointer">
               <div
-                class="aspect-video rounded-[32px] overflow-hidden bg-surface-container relative mb-6"
+                class="aspect-video rounded-[24px] md:rounded-[32px] overflow-hidden bg-surface-container relative mb-4 md:mb-6"
               >
                 <img
                   class="w-full h-full object-cover"
@@ -628,19 +686,23 @@ void main() {
                   class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500"
                 ></div>
               </div>
-              <div class="space-y-3">
+              <div class="space-y-2 md:space-y-3">
                 <div class="flex gap-2">
                   <span
-                    class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
+                    class="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
                     >UI/UX</span
                   >
                   <span
-                    class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
+                    class="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-on-surface-variant bg-surface-variant px-2 py-0.5 rounded"
                     >Prototypes</span
                   >
                 </div>
-                <h3 class="font-headline-lg text-headline-lg">Pandawa</h3>
-                <p class="text-on-surface-variant text-body-md line-clamp-2">
+                <h3 class="font-headline-lg text-[24px] md:text-headline-lg">
+                  Pandawa
+                </h3>
+                <p
+                  class="text-on-surface-variant text-sm md:text-body-md line-clamp-2"
+                >
                   Designing a digital village administration platform that
                   streamlines public services, document management, and citizen
                   engagement through an intuitive and efficient user experience.
@@ -652,39 +714,43 @@ void main() {
       </section>
       <!-- CTA Section -->
       <section
-        class="max-w-[1200px] mx-auto px-gutter py-section-gap text-center"
+        class="max-w-[1200px] mx-auto px-4 md:px-gutter py-16 md:py-section-gap text-center"
       >
         <div
-          class="bg-on-surface text-surface py-20 px-8 rounded-[40px] relative overflow-hidden"
+          class="bg-on-surface text-surface py-12 px-6 md:py-20 md:px-8 rounded-[24px] md:rounded-[40px] relative overflow-hidden"
         >
-          <div class="absolute top-0 right-0 p-12 opacity-10">
+          <div
+            class="absolute top-0 right-0 p-6 md:p-12 opacity-10 pointer-events-none"
+          >
             <span
-              class="material-symbols-outlined text-[200px]"
+              class="material-symbols-outlined text-[100px] md:text-[200px]"
               style="font-variation-settings: &quot;FILL&quot; 1"
               >send</span
             >
           </div>
-          <h2 class="font-headline-xl text-headline-xl mb-6 relative z-10">
+          <h2
+            class="font-headline-xl text-[28px] md:text-headline-xl mb-4 md:mb-6 relative z-10 leading-tight"
+          >
             Ready to optimize your next big idea?
           </h2>
           <p
-            class="text-surface-variant/80 max-w-xl mx-auto mb-10 text-body-lg relative z-10"
+            class="text-surface-variant/80 max-w-xl mx-auto mb-8 md:mb-10 text-sm md:text-body-lg relative z-10"
           >
             Let's discuss how systematic analysis can turn your complex
             requirements into a streamlined reality.
           </p>
           <div
-            class="flex flex-col sm:flex-row gap-4 justify-center relative z-10"
+            class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center relative z-10 w-full"
           >
             <a
               href="https://wa.me/6281227128250?text=Halo%20Tegar,%20saya%20tertarik%20dengan%20portfolio%20Anda"
-              class="inline-block text-center bg-primary text-on-primary px-10 py-4 rounded-xl font-headline-lg text-[18px] transition-all hover:opacity-90 shadow-md active:scale-95"
+              class="w-full sm:w-auto inline-block text-center bg-primary text-on-primary px-6 md:px-10 py-3 md:py-4 rounded-xl font-headline-lg text-[16px] md:text-[18px] transition-all hover:opacity-90 shadow-md active:scale-95"
             >
               Schedule a Consultation
             </a>
 
             <button
-              class="bg-white/10 border border-white/20 text-white backdrop-blur-md px-8 py-4 rounded-xl font-bold hover:bg-white/20 active:scale-95 transition-all"
+              class="w-full sm:w-auto bg-white/10 border border-white/20 text-white backdrop-blur-md px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-[16px] md:text-[18px] hover:bg-white/20 active:scale-95 transition-all"
             >
               Download My Resume
             </button>
@@ -696,7 +762,7 @@ void main() {
     <footer class="border-t border-outline-variant bg-background py-8">
       <div class="max-w-[1200px] mx-auto px-6">
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-6"
+          class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
         >
           <div>
             <h3 class="text-lg font-semibold tracking-tight text-on-surface">
@@ -705,7 +771,9 @@ void main() {
             <p class="text-sm text-secondary mt-1">System Analyst</p>
           </div>
 
-          <nav class="flex items-center gap-8 text-sm text-secondary">
+          <nav
+            class="flex flex-wrap justify-center md:justify-end items-center gap-6 md:gap-8 text-sm text-secondary"
+          >
             <a href="#" class="hover:text-on-surface transition-colors"
               >LinkedIn</a
             >
@@ -725,9 +793,7 @@ void main() {
       </div>
     </footer>
     <script>
-      // Micro-interactions and effects
       document.addEventListener("DOMContentLoaded", () => {
-        // Header scroll effect
         const header = document.querySelector("header");
         window.addEventListener("scroll", () => {
           if (window.scrollY > 50) {
@@ -739,9 +805,9 @@ void main() {
           }
         });
 
-        // Smooth parallax effect for bento cards
         const cards = document.querySelectorAll(".bento-card");
         window.addEventListener("mousemove", (e) => {
+          if (window.innerWidth < 768) return; // Disable parallax on mobile
           const mouseX = e.clientX;
           const mouseY = e.clientY;
 
@@ -753,7 +819,6 @@ void main() {
             const angleX = (mouseY - cardY) / 60;
             const angleY = (cardX - mouseX) / 60;
 
-            // Only apply slightly if mouse is relatively near
             const dist = Math.sqrt(
               Math.pow(mouseX - cardX, 2) + Math.pow(mouseY - cardY, 2),
             );
@@ -765,7 +830,6 @@ void main() {
           });
         });
 
-        // Intersection Observer for scroll reveal
         const observerOptions = {
           threshold: 0.1,
           rootMargin: "0px 0px -50px 0px",
@@ -788,6 +852,27 @@ void main() {
             "translate-y-10",
           );
           observer.observe(el);
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- MOBILE MENU LOGIC ---
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = mobileMenuBtn.querySelector("span");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          // Toggle the display classes
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("flex");
+
+          // Change icon from 'menu' to 'close'
+          if (mobileMenu.classList.contains("hidden")) {
+            menuIcon.textContent = "menu";
+          } else {
+            menuIcon.textContent = "close";
+          }
         });
       });
     </script>

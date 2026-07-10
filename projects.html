@@ -1,334 +1,614 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects | Tegar Kang Ageng Gilang</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Projects | Tegar Kang Ageng Gilang</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
-            "colors": {
-                    "on-primary-fixed": "#001a41",
-                    "tertiary-container": "#747479",
-                    "outline": "#717786",
-                    "inverse-surface": "#2f3132",
-                    "secondary-container": "#e2dfe1",
-                    "on-tertiary-fixed": "#1a1b1f",
-                    "surface-container-lowest": "#ffffff",
-                    "on-primary-container": "#fefcff",
-                    "on-secondary-container": "#636264",
-                    "secondary-fixed-dim": "#c8c6c8",
-                    "tertiary-fixed-dim": "#c7c6cb",
-                    "on-error-container": "#93000a",
-                    "inverse-primary": "#adc6ff",
-                    "surface-variant": "#e2e2e4",
-                    "on-background": "#1a1c1d",
-                    "surface-container-highest": "#e2e2e4",
-                    "on-tertiary-fixed-variant": "#46464b",
-                    "on-secondary-fixed": "#1b1b1d",
-                    "surface-tint": "#005bc1",
-                    "surface-container-low": "#f3f3f5",
-                    "surface-container-high": "#e8e8ea",
-                    "primary": "#0058bc",
-                    "tertiary-fixed": "#e3e2e7",
-                    "outline-variant": "#c1c6d7",
-                    "primary-fixed": "#d8e2ff",
-                    "on-tertiary": "#ffffff",
-                    "on-primary-fixed-variant": "#004493",
-                    "background": "#f9f9fb",
-                    "secondary": "#5f5e60",
-                    "surface": "#f9f9fb",
-                    "primary-container": "#0070eb",
-                    "error": "#ba1a1a",
-                    "on-tertiary-container": "#fefcff",
-                    "on-error": "#ffffff",
-                    "inverse-on-surface": "#f0f0f2",
-                    "tertiary": "#5b5c60",
-                    "surface-dim": "#d9dadc",
-                    "on-surface": "#1a1c1d",
-                    "primary-fixed-dim": "#adc6ff",
-                    "secondary-fixed": "#e4e2e4",
-                    "on-surface-variant": "#414755",
-                    "error-container": "#ffdad6",
-                    "surface-container": "#eeeef0",
-                    "surface-bright": "#f9f9fb",
-                    "on-primary": "#ffffff",
-                    "on-secondary": "#ffffff",
-                    "on-secondary-fixed-variant": "#474649"
+            colors: {
+              "on-primary-fixed": "#001a41",
+              "tertiary-container": "#747479",
+              outline: "#717786",
+              "inverse-surface": "#2f3132",
+              "secondary-container": "#e2dfe1",
+              "on-tertiary-fixed": "#1a1b1f",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#fefcff",
+              "on-secondary-container": "#636264",
+              "secondary-fixed-dim": "#c8c6c8",
+              "tertiary-fixed-dim": "#c7c6cb",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#adc6ff",
+              "surface-variant": "#e2e2e4",
+              "on-background": "#1a1c1d",
+              "surface-container-highest": "#e2e2e4",
+              "on-tertiary-fixed-variant": "#46464b",
+              "on-secondary-fixed": "#1b1b1d",
+              "surface-tint": "#005bc1",
+              "surface-container-low": "#f3f3f5",
+              "surface-container-high": "#e8e8ea",
+              primary: "#0058bc",
+              "tertiary-fixed": "#e3e2e7",
+              "outline-variant": "#c1c6d7",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#004493",
+              background: "#f9f9fb",
+              secondary: "#5f5e60",
+              surface: "#f9f9fb",
+              "primary-container": "#0070eb",
+              error: "#ba1a1a",
+              "on-tertiary-container": "#fefcff",
+              "on-error": "#ffffff",
+              "inverse-on-surface": "#f0f0f2",
+              tertiary: "#5b5c60",
+              "surface-dim": "#d9dadc",
+              "on-surface": "#1a1c1d",
+              "primary-fixed-dim": "#adc6ff",
+              "secondary-fixed": "#e4e2e4",
+              "on-surface-variant": "#414755",
+              "error-container": "#ffdad6",
+              "surface-container": "#eeeef0",
+              "surface-bright": "#f9f9fb",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#474649",
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
             },
-            "spacing": {
-                    "element-gap": "32px",
-                    "section-gap": "120px",
-                    "container-max": "1200px",
-                    "gutter": "24px",
-                    "margin-mobile": "20px",
-                    "unit": "8px"
+            spacing: {
+              "element-gap": "32px",
+              "section-gap": "120px",
+              "container-max": "1200px",
+              gutter: "24px",
+              "margin-mobile": "20px",
+              unit: "8px",
             },
-            "fontFamily": {
-                    "body-md": ["Inter"],
-                    "label-sm": ["Inter"],
-                    "display-lg": ["Inter"],
-                    "headline-xl": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "display-lg-mobile": ["Inter"]
+            fontFamily: {
+              "body-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "display-lg": ["Inter"],
+              "headline-xl": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-lg": ["Inter"],
+              "display-lg-mobile": ["Inter"],
             },
-            "fontSize": {
-                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
-                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
-                    "headline-xl": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
-            }
+            fontSize: {
+              "body-md": [
+                "16px",
+                { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "label-sm": [
+                "12px",
+                { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" },
+              ],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-xl": [
+                "40px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                { lineHeight: "1.6", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg-mobile": [
+                "40px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
           },
         },
-      }
+      };
     </script>
-<style>
-        .glass-nav {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .project-card {
-            transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1);
-        }
-        .project-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
+    <style>
+      .glass-nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .project-card {
+        transition:
+          transform 0.4s cubic-bezier(0.2, 0, 0, 1),
+          box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .project-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
     </style>
-</head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full z-50 border-b border-outline-variant/20 shadow-sm bg-surface/70 backdrop-blur-xl">
-<nav class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
-<div class="font-headline-lg text-[20px] md:text-[21px] font-bold tracking-tight text-on-surface">
-    Tegar Kang Ageng Gilang
-</div>
-<nav class="hidden md:flex items-center gap-8">
-
-    <a href="index.html"
-       class="text-on-surface-variant hover:text-primary transition-colors">
-       Home
-    </a>
-
-    <a href="about.html"
-       class="text-on-surface-variant hover:text-primary transition-colors">
-       About
-    </a>
-
-    <a href="projects.html"
-       class="text-on-surface-variant hover:text-primary transition-colors">
-       Projects
-    </a>
-
-    <a href="contact.html"
-       class="text-on-surface-variant hover:text-primary transition-colors">
-       Contact
-    </a>
-
-</nav>
-<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-sm text-label-sm transition-all active:scale-95 hover:opacity-90">
-                Hire Me
-            </button>
-</nav>
-</header>
-<!-- Mobile Menu Placeholder -->
-<div class="md:hidden">
-<span class="material-symbols-outlined text-on-surface">menu</span>
-</div>
-</div>
-</nav>
-<main class="pt-32 pb-section-gap">
-<!-- Hero Section -->
-<section class="max-w-[1200px] mx-auto px-gutter mb-section-gap text-center md:text-left">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-6">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Portfolio</span>
-</div>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 max-w-3xl">
-                Technical Precision Meets <span class="text-primary">System Architecture</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                A selection of digital solutions built with a focus on administrative efficiency, SaaS scalability, and high-performance operational dashboards.
-            </p>
-</section>
-<!-- Projects Grid -->
-<section class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-element-gap">
-<!-- Project 1: AfterMe -->
-<div class="project-card bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 flex flex-col h-full group overflow-hidden">
-<div class="relative overflow-hidden aspect-[4/3] bg-surface-container-high">
-<video class="w-full aspect-video rounded-24 shadow-sm border border-outline-variant/20 object-cover" autoplay loop muted playsinline>
-    <source src="assets/afterme.mp4" type="video/mp4">
-</video>
-<div class="absolute top-4 left-4">
-<span class="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full font-label-sm text-[10px] text-primary uppercase tracking-widest border border-white/20">SaaS Booking</span>
-</div>
-</div>
-<div class="p-8 flex flex-col flex-grow">
-<h3 class="font-headline-lg text-headline-lg mb-3">AfterMe</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
-                        A comprehensive SaaS platform designed for UMKM (SMEs) to manage complex booking flows and real-time queueing systems with ease.
-                    </p>
-<div class="flex flex-wrap gap-2 mb-8">
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">Next.js</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">Tailwind</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">PostgreSQL</span>
-</div>
-<button class="flex items-center justify-between w-full text-primary font-bold group/btn">
-<span class="font-label-sm text-label-sm">View Detail</span>
-<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</div>
-</div>
-<!-- Project 2: STOQIS -->
-<div class="project-card bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 flex flex-col h-full group overflow-hidden">
-<div class="relative overflow-hidden aspect-[4/3] bg-surface-container-high">
-<video class="w-full aspect-video rounded-24 shadow-sm border border-outline-variant/20 object-cover" autoplay loop muted playsinline>
-    <source src="assets/storis.mp4" type="video/mp4">
-</video>
-<div class="absolute top-4 left-4">
-<span class="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full font-label-sm text-[10px] text-primary uppercase tracking-widest border border-white/20">Government Tech</span>
-</div>
-</div>
-<div class="p-8 flex flex-col flex-grow">
-<h3 class="font-headline-lg text-headline-lg mb-3">Stoqis</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
-                        Smart warehouse inventory management system designed to streamline stock monitoring, inventory tracking, and operational efficiency through real-time data management.
-                    </p>
-<div class="flex flex-wrap gap-2 mb-8">
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">Laravel</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">Livewire</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">MySQL</span>
-</div>
-<button class="flex items-center justify-between w-full text-primary font-bold group/btn">
-<span class="font-label-sm text-label-sm">View Detail</span>
-<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</div>
-</div>
-<!-- Project 3: SOLESTUDIO-->
-<div class="project-card bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 flex flex-col h-full group overflow-hidden">
-<div class="relative overflow-hidden aspect-[4/3] bg-surface-container-high">
-<video class="w-full aspect-video rounded-24 shadow-sm border border-outline-variant/20 object-cover" autoplay loop muted playsinline>
-    <source src="assets/solestudio.mp4" type="video/mp4">
-</video>
-<div class="absolute top-4 left-4">
-<span class="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full font-label-sm text-[10px] text-primary uppercase tracking-widest border border-white/20">Enterprise Analytics</span>
-</div>
-</div>
-<div class="p-8 flex flex-col flex-grow">
-<h3 class="font-headline-lg text-headline-lg mb-3">Sole Studio</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
-                       A modern digital platform designed to streamline custom footwear orders, product catalog management, and customer engagement through a seamless shopping experience.
-                    </p>
-<div class="flex flex-wrap gap-2 mb-8">
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">React</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">D3.js</span>
-<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px]">Cloud Functions</span>
-</div>
-<button class="flex items-center justify-between w-full text-primary font-bold group/btn">
-<span class="font-label-sm text-label-sm">View Detail</span>
-<span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="mt-section-gap max-w-[1200px] mx-auto px-gutter">
-<div class="bg-primary-container text-on-primary-container p-12 md:p-20 rounded-[40px] text-center relative overflow-hidden">
-<!-- Abstract Background Elements -->
-<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-<div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/20 rounded-full -ml-48 -mb-48 blur-3xl"></div>
-<h2 class="font-headline-xl text-headline-xl mb-6 relative z-10">Need a specialized <span class="opacity-80">System Analyst</span>?</h2>
-<p class="font-body-lg text-body-lg mb-10 max-w-xl mx-auto relative z-10">
-                    I help businesses transform complex operational problems into scalable, high-performance digital systems.
-                </p>
-<div class="flex flex-col md:flex-row justify-center items-center gap-4 relative z-10">
-<button class="bg-on-primary-container text-primary px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform">
-                        Let's Talk Project
-                    </button>
-<button class="text-on-primary-container border border-on-primary-container/30 px-10 py-4 rounded-full font-bold hover:bg-white/10 transition-colors">
-                        View Resume
-                    </button>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="border-t border-outline-variant bg-background py-8">
-    <div class="max-w-[1200px] mx-auto px-6">
-
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-
-            <div>
-                <h3 class="text-lg font-semibold tracking-tight text-on-surface">
-                    Tegar Kang Ageng Gilang
-                </h3>
-                <p class="text-sm text-secondary mt-1">
-                    System Analyst
-                </p>
-            </div>
-
-            <nav class="flex items-center gap-8 text-sm text-secondary">
-                <a href="#" class="hover:text-on-surface transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-on-surface transition-colors">GitHub</a>
-                <a href="#" class="hover:text-on-surface transition-colors">Resume</a>
-                <a href="mailto:email@example.com" class="hover:text-on-surface transition-colors">Email</a>
-            </nav>
-
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden"
+  >
+    <!-- Top Navigation Bar -->
+    <!-- Navigation Shell -->
+    <header
+      class="fixed top-0 w-full z-50 border-b border-outline-variant/20 shadow-sm bg-surface/70 backdrop-blur-xl transition-all"
+    >
+      <nav
+        class="flex justify-between items-center max-w-[1200px] mx-auto px-4 md:px-gutter py-4 relative"
+      >
+        <div
+          class="font-headline-lg text-[16px] md:text-[21px] font-bold tracking-tight text-on-surface truncate pr-2"
+        >
+          Tegar Kang Ageng Gilang
         </div>
 
-    </div>
-</footer>
-<script>
-        // Smooth reveal animations on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            href="index.html"
+            class="text-on-surface-variant hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-on-surface-variant hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            href="projects.html"
+            class="text-on-surface-variant hover:text-primary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="contact.html"
+            class="text-on-surface-variant hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </nav>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
+        <div class="flex items-center gap-4">
+          <button
+            class="hidden sm:block bg-primary text-on-primary px-5 md:px-6 py-2 md:py-2.5 rounded-full font-label-sm text-[12px] md:text-label-sm transition-all active:scale-95 hover:opacity-90 whitespace-nowrap"
+          >
+            Hire Me
+          </button>
 
-        document.querySelectorAll('.project-card').forEach((card, index) => {
-            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
-            card.style.transitionDelay = `${index * 150}ms`;
-            observer.observe(card);
+          <!-- Mobile Hamburger Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex items-center cursor-pointer p-1 rounded-md hover:bg-surface-variant/50 transition-colors"
+          >
+            <span class="material-symbols-outlined text-on-surface text-[28px]"
+              >menu</span
+            >
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline-variant/20 shadow-lg flex-col px-4 py-4 gap-2 origin-top"
+      >
+        <a
+          href="index.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >About</a
+        >
+        <a
+          href="projects.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Projects</a
+        >
+        <a
+          href="contact.html"
+          class="text-on-surface font-medium p-3 rounded-xl hover:bg-surface-variant/50 transition-colors"
+          >Contact</a
+        >
+        <button
+          class="w-full bg-primary text-on-primary py-3 mt-2 rounded-xl font-bold active:scale-95 transition-transform"
+        >
+          Hire Me
+        </button>
+      </div>
+    </header>
+    <main class="pt-24 md:pt-32 pb-16 md:pb-section-gap">
+      <!-- Hero Section -->
+      <section
+        class="max-w-[1200px] mx-auto px-4 md:px-gutter mb-12 md:mb-section-gap text-center md:text-left"
+      >
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-4 md:mb-6"
+        >
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span
+            class="font-label-sm text-[10px] md:text-label-sm text-on-surface-variant uppercase tracking-widest"
+            >Portfolio</span
+          >
+        </div>
+        <h1
+          class="font-display-lg text-[32px] md:text-display-lg mb-4 md:mb-6 max-w-3xl leading-tight"
+        >
+          Technical Precision Meets
+          <span class="text-primary block md:inline">System Architecture</span>
+        </h1>
+        <p
+          class="font-body-lg text-sm md:text-body-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0"
+        >
+          A selection of digital solutions built with a focus on administrative
+          efficiency, SaaS scalability, and high-performance operational
+          dashboards.
+        </p>
+      </section>
+      <!-- Projects Grid -->
+      <section
+        class="max-w-[1200px] mx-auto px-4 md:px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-element-gap"
+      >
+        <!-- Project 1: AfterMe -->
+        <div
+          class="project-card bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 flex flex-col h-full group overflow-hidden"
+        >
+          <div
+            class="relative overflow-hidden aspect-[4/3] bg-surface-container-high"
+          >
+            <video
+              class="w-full aspect-video rounded-24 shadow-sm border border-outline-variant/20 object-cover"
+              autoplay
+              loop
+              muted
+              playsinline
+            >
+              <source src="assets/afterme.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute top-4 left-4">
+              <span
+                class="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full font-label-sm text-[10px] text-primary uppercase tracking-widest border border-white/20"
+                >SaaS Booking</span
+              >
+            </div>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <h3
+              class="font-headline-lg text-[20px] md:text-headline-lg mb-2 md:mb-3"
+            >
+              AfterMe
+            </h3>
+            <p
+              class="font-body-md text-sm md:text-body-md text-on-surface-variant mb-4 md:mb-6 flex-grow"
+            >
+              A comprehensive SaaS platform designed for UMKM (SMEs) to manage
+              complex booking flows and real-time queueing systems with ease.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >Next.js</span
+              >
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >Tailwind</span
+              >
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >PostgreSQL</span
+              >
+            </div>
+            <button
+              class="flex items-center justify-between w-full text-primary font-bold group/btn"
+            >
+              <span class="font-label-sm text-[12px] md:text-label-sm"
+                >View Detail</span
+              >
+              <span
+                class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+        <!-- Project 2: STOQIS -->
+        <div
+          class="project-card bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 flex flex-col h-full group overflow-hidden"
+        >
+          <div
+            class="relative overflow-hidden aspect-[4/3] bg-surface-container-high"
+          >
+            <video
+              class="w-full aspect-video rounded-24 shadow-sm border border-outline-variant/20 object-cover"
+              autoplay
+              loop
+              muted
+              playsinline
+            >
+              <source src="assets/storis.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute top-4 left-4">
+              <span
+                class="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full font-label-sm text-[10px] text-primary uppercase tracking-widest border border-white/20"
+                >Government Tech</span
+              >
+            </div>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <h3
+              class="font-headline-lg text-[20px] md:text-headline-lg mb-2 md:mb-3"
+            >
+              Stoqis
+            </h3>
+            <p
+              class="font-body-md text-sm md:text-body-md text-on-surface-variant mb-4 md:mb-6 flex-grow"
+            >
+              Smart warehouse inventory management system designed to streamline
+              stock monitoring, inventory tracking, and operational efficiency
+              through real-time data management.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >Laravel</span
+              >
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >Livewire</span
+              >
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >MySQL</span
+              >
+            </div>
+            <button
+              class="flex items-center justify-between w-full text-primary font-bold group/btn"
+            >
+              <span class="font-label-sm text-[12px] md:text-label-sm"
+                >View Detail</span
+              >
+              <span
+                class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+        <!-- Project 3: SOLESTUDIO-->
+        <div
+          class="project-card bg-surface-container-lowest rounded-[24px] border border-outline-variant/30 flex flex-col h-full group overflow-hidden"
+        >
+          <div
+            class="relative overflow-hidden aspect-[4/3] bg-surface-container-high"
+          >
+            <video
+              class="w-full aspect-video rounded-24 shadow-sm border border-outline-variant/20 object-cover"
+              autoplay
+              loop
+              muted
+              playsinline
+            >
+              <source src="assets/solestudio.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute top-4 left-4">
+              <span
+                class="px-3 py-1 bg-white/80 backdrop-blur-md rounded-full font-label-sm text-[10px] text-primary uppercase tracking-widest border border-white/20"
+                >Enterprise Analytics</span
+              >
+            </div>
+          </div>
+          <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <h3
+              class="font-headline-lg text-[20px] md:text-headline-lg mb-2 md:mb-3"
+            >
+              Sole Studio
+            </h3>
+            <p
+              class="font-body-md text-sm md:text-body-md text-on-surface-variant mb-4 md:mb-6 flex-grow"
+            >
+              A modern digital platform designed to streamline custom footwear
+              orders, product catalog management, and customer engagement
+              through a seamless shopping experience.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6 md:mb-8">
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >React</span
+              >
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >D3.js</span
+              >
+              <span
+                class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[10px] md:text-[11px]"
+                >Cloud Functions</span
+              >
+            </div>
+            <button
+              class="flex items-center justify-between w-full text-primary font-bold group/btn"
+            >
+              <span class="font-label-sm text-[12px] md:text-label-sm"
+                >View Detail</span
+              >
+              <span
+                class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section
+        class="mt-16 md:mt-section-gap max-w-[1200px] mx-auto px-4 md:px-gutter"
+      >
+        <div
+          class="bg-primary-container text-on-primary-container p-8 md:p-20 rounded-[24px] md:rounded-[40px] text-center relative overflow-hidden"
+        >
+          <!-- Abstract Background Elements -->
+          <div
+            class="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 bg-white/10 rounded-full -mr-16 -mt-16 md:-mr-32 md:-mt-32 blur-2xl md:blur-3xl pointer-events-none"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-48 h-48 md:w-96 md:h-96 bg-primary/20 rounded-full -ml-24 -mb-24 md:-ml-48 md:-mb-48 blur-2xl md:blur-3xl pointer-events-none"
+          ></div>
+          <h2
+            class="font-headline-xl text-[24px] md:text-headline-xl mb-4 md:mb-6 relative z-10 leading-tight"
+          >
+            Need a specialized
+            <span class="opacity-80 block sm:inline">System Analyst</span>?
+          </h2>
+          <p
+            class="font-body-lg text-sm md:text-body-lg mb-8 md:mb-10 max-w-xl mx-auto relative z-10"
+          >
+            I help businesses transform complex operational problems into
+            scalable, high-performance digital systems.
+          </p>
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-4 relative z-10 w-full"
+          >
+            <button
+              class="w-full md:w-auto bg-on-primary-container text-primary px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-[14px] md:text-[16px] hover:scale-105 transition-transform"
+            >
+              Let's Talk Project
+            </button>
+            <button
+              class="w-full md:w-auto text-on-primary-container border border-on-primary-container/30 px-6 md:px-10 py-3 md:py-4 rounded-full font-bold text-[14px] md:text-[16px] hover:bg-white/10 transition-colors"
+            >
+              View Resume
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="border-t border-outline-variant bg-background py-8">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
+        >
+          <div>
+            <h3 class="text-lg font-semibold tracking-tight text-on-surface">
+              Tegar Kang Ageng Gilang
+            </h3>
+            <p class="text-sm text-secondary mt-1">System Analyst</p>
+          </div>
+          <nav
+            class="flex flex-wrap justify-center md:justify-end items-center gap-6 md:gap-8 text-sm text-secondary"
+          >
+            <a href="#" class="hover:text-on-surface transition-colors"
+              >LinkedIn</a
+            >
+            <a href="#" class="hover:text-on-surface transition-colors"
+              >GitHub</a
+            >
+            <a href="#" class="hover:text-on-surface transition-colors"
+              >Resume</a
+            >
+            <a
+              href="mailto:email@example.com"
+              class="hover:text-on-surface transition-colors"
+              >Email</a
+            >
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+          }
         });
+      }, observerOptions);
 
-        // Hover Micro-interaction for Detail Buttons
-        document.querySelectorAll('.project-card').forEach(card => {
-            const btn = card.querySelector('button');
-            card.addEventListener('mouseenter', () => {
-                btn.classList.add('scale-105');
-            });
-            card.addEventListener('mouseleave', () => {
-                btn.classList.remove('scale-105');
-            });
+      document.querySelectorAll(".project-card").forEach((card, index) => {
+        card.classList.add(
+          "opacity-0",
+          "translate-y-10",
+          "transition-all",
+          "duration-700",
+        );
+        card.style.transitionDelay = `${index * 150}ms`;
+        observer.observe(card);
+      });
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        const btn = card.querySelector("button");
+        card.addEventListener("mouseenter", () => {
+          btn.classList.add("scale-105");
         });
+        card.addEventListener("mouseleave", () => {
+          btn.classList.remove("scale-105");
+        });
+      });
     </script>
-</body></html>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- MOBILE MENU LOGIC ---
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = mobileMenuBtn.querySelector("span");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          // Toggle the display classes
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("flex");
+
+          // Change icon from 'menu' to 'close'
+          if (mobileMenu.classList.contains("hidden")) {
+            menuIcon.textContent = "menu";
+          } else {
+            menuIcon.textContent = "close";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
